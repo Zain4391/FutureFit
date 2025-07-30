@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const containerVariants = {
@@ -61,17 +62,21 @@ const Hero = () => {
             className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
             variants={itemVariants}
           >
-            <motion.button 
-              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25 flex items-center justify-center"
+            <motion.div
               variants={buttonVariants}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
-              </svg>
-              Upload & Analyze Resume
-            </motion.button>
+              <Link 
+                to="/report"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25 flex items-center justify-center"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                </svg>
+                Upload & Analyze Resume
+              </Link>
+            </motion.div>
             
             <motion.button 
               className="border border-blue-400 text-blue-400 hover:bg-blue-400 hover:bg-opacity-10 px-8 py-4 rounded-lg text-lg font-medium transition-all"

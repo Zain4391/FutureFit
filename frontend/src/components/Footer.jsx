@@ -165,16 +165,6 @@ const Footer = () => {
           />
         </motion.div>
       </div>
-      
-      {/* Background subtle animation */}
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-blue-600/20"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, delay: 0.5 }}
-        style={{ transformOrigin: "left" }}
-      />
     </footer>
   );
 };

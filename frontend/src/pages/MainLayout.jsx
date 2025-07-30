@@ -30,7 +30,6 @@ const MainLayout = () => {
       <main className="flex-1 w-full">
         <Outlet />
       </main>
-      <Footer />
     </div>
   );
 };
