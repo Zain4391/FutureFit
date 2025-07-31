@@ -1,7 +1,4 @@
 {
-    "buildCommand": "cd ./frontend && npm run build",
-    "outputDirectory": "FutureFit/frontend/dist",
-    "installCommand": "cd FutureFit/frontend && npm install",
     "rewrites": [
       {
         "source": "/(.*)",
