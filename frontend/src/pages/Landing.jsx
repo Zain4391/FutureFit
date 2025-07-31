@@ -13,7 +13,6 @@ const Landing = () => {
       <div id="how-it-works">
         <Working />
       </div>
-      <DragAndDrop />
       <div id="features">
         <Features />
       </div>

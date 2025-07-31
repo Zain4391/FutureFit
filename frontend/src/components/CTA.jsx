@@ -1,7 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CTA = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/report");
+  };
   return (
     <section className="py-20 px-6 bg-gray-900 overflow-hidden">
       <div className="container mx-auto">
@@ -59,6 +65,7 @@ const CTA = () => {
                 boxShadow: "0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 10px 10px -5px rgba(255, 255, 255, 0.04)"
               }}
               whileTap={{ scale: 0.98 }}
+              onClick={handleClick}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-0"

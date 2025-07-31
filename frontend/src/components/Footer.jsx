@@ -152,7 +152,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            &copy; 2023 Future Fit. All rights reserved.
+            &copy; 2025 Future Fit. All rights reserved.
           </motion.p>
           
           {/* Subtle animated decoration */}
