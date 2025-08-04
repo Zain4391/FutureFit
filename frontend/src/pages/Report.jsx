@@ -79,11 +79,39 @@ const Report = () => {
 
     const formatPredictedYear = (year) => {
         const currentYear = new Date().getFullYear();
-        const yearsUntil = year - currentYear;
+        let yearsUntil;
         
-        if (yearsUntil <= 5) return { color: 'text-red-400', bg: 'bg-red-900/20', label: 'High Risk' };
-        if (yearsUntil <= 15) return { color: 'text-yellow-400', bg: 'bg-yellow-900/20', label: 'Medium Risk' };
-        return { color: 'text-green-400', bg: 'bg-green-900/20', label: 'Low Risk' };
+        // Handle case where year might be just the number of years (like "12") instead of full year (like "2037")
+        if (year < 100) {
+            // If it's a small number, treat it as years from now
+            yearsUntil = year;
+        } else {
+            // If it's a full year, calculate the difference
+            yearsUntil = year - currentYear;
+        }
+        
+        console.log('Predicted year:', year, 'Current year:', currentYear, 'Years until:', yearsUntil);
+        
+        if (yearsUntil < 5) {
+            console.log('Returning High Risk');
+            return { color: 'text-red-400', bg: 'bg-red-900/20', label: 'High Risk' };
+        }
+        if (yearsUntil >= 5 && yearsUntil < 10) {
+            console.log('Returning Moderate Risk');
+            return { color: 'text-orange-400', bg: 'bg-orange-900/20', label: 'Moderate Risk' };
+        }
+        if (yearsUntil >= 10 && yearsUntil < 15) {
+            console.log('Returning Medium Risk');
+            return { color: 'text-yellow-400', bg: 'bg-yellow-900/20', label: 'Medium Risk' };
+        }
+        if (yearsUntil >= 15) {
+            console.log('Returning Safe');
+            return { color: 'text-green-400', bg: 'bg-green-900/20', label: 'Safe' };
+        }
+        
+        // Fallback
+        console.log('Returning Unknown fallback');
+        return { color: 'text-gray-400', bg: 'bg-gray-900/20', label: 'Unknown' };
     };
 
     return (
@@ -268,7 +296,7 @@ const Report = () => {
                                         <div className={`p-4 rounded-xl ${riskInfo.bg} border border-opacity-20`}>
                                             <div className="flex items-center justify-between">
                                                 <div>
-                                                    <p className="text-2xl font-bold text-white">{report.predictedYear}+</p>
+                                                    <p className="text-2xl font-bold text-white">{report.predictedYear}</p>
                                                     <p className="text-sm text-gray-400">Predicted displacement year</p>
                                                 </div>
                                                 <div className={`px-3 py-1 rounded-full text-sm font-medium ${riskInfo.color} bg-gray-800/50`}>
