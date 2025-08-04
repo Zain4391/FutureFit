@@ -45,17 +45,29 @@ const Navbar = () => {
           transition={{ delay: 0.3, duration: 0.5 }}
         >
           <Link to="/" className="flex items-center">
-            <motion.svg 
-              className="h-8 w-8 text-blue-500" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-              whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-              transition={{ duration: 0.5 }}
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </motion.svg>
-            <span className="ml-2 text-xl font-bold text-white">
+              <motion.img 
+                src="/Future_Fit.jpeg"
+                alt="FutureFit Logo"
+                className="h-12 w-12 rounded-full object-cover shadow-lg ring-2 ring-blue-400/30"
+                whileHover={{ 
+                  scale: 1.1,
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)"
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+            <span className="ml-3 text-2xl font-bold text-white">
               Future<span className="text-blue-400">Fit</span>
             </span>
           </Link>

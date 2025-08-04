@@ -82,7 +82,7 @@ const CTA = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              No credit card required. Get your first report free.
+              No credit card required.
             </motion.p>
           </div>
           

@@ -25,23 +25,13 @@ const Footer = () => {
     },
   };
 
-  const linkVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
+
 
   return (
     <footer className="py-12 px-6 bg-gray-900 border-t border-gray-800 overflow-hidden">
       <div className="container mx-auto">
         <motion.div
-          className="flex flex-col md:flex-row justify-between items-center"
+          className="flex flex-col items-center text-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -49,32 +39,23 @@ const Footer = () => {
         >
           {/* Logo and Description */}
           <motion.div
-            className="mb-8 md:mb-0 text-center md:text-left"
+            className="mb-8"
             variants={itemVariants}
           >
             <motion.div
-              className="flex items-center justify-center md:justify-start mb-4"
+              className="flex items-center justify-center mb-4"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <motion.svg
-                className="h-8 w-8 text-blue-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <motion.img
+                src="/Future_Fit.jpeg"
+                alt="FutureFit Logo"
+                className="h-8 w-8 rounded-full object-cover"
                 whileHover={{ 
-                  rotate: [0, -10, 10, 0],
                   scale: 1.1 
                 }}
-                transition={{ duration: 0.5 }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </motion.svg>
+                transition={{ duration: 0.3 }}
+              />
               <motion.span
                 className="ml-2 text-xl font-bold text-white"
                 initial={{ opacity: 0, x: -10 }}
@@ -86,7 +67,7 @@ const Footer = () => {
               </motion.span>
             </motion.div>
             <motion.p
-              className="text-gray-400 max-w-md"
+              className="text-gray-400 max-w-md mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -95,46 +76,6 @@ const Footer = () => {
               AI-powered career analysis and skill development for the future of
               work.
             </motion.p>
-          </motion.div>
-
-          {/* Links */}
-          <motion.div
-            className="flex space-x-8"
-            variants={itemVariants}
-          >
-            {[
-              { text: "About Us", href: "#" },
-              { text: "Privacy Policy", href: "#" },
-              { text: "Terms of Service", href: "#" },
-            ].map((link, index) => (
-              <motion.a
-                key={link.text}
-                href={link.href}
-                className="text-gray-400 hover:text-blue-400 transition-colors relative"
-                variants={linkVariants}
-                whileHover={{ 
-                  y: -2,
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
-                custom={index}
-              >
-                <motion.span
-                  className="relative z-10"
-                  whileHover={{
-                    color: "#60a5fa",
-                  }}
-                >
-                  {link.text}
-                </motion.span>
-                <motion.div
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
-            ))}
           </motion.div>
         </motion.div>
 
